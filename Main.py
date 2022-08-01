@@ -1,7 +1,7 @@
 from openpyexcel import load_workbook
 
 book = load_workbook(r'Shadow-the-Hedgehog-Engings-List.xlsx')
-#download Shadow_the_Hedhehog_Engings_List and replace file location in next line
+#download Shadow_the_Hedhehog_Engings_List and replace file location in the above line
 sheet = book.active
 
 rows = sheet.rows
