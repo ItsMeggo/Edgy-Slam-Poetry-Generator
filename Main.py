@@ -1,7 +1,6 @@
 from openpyexcel import load_workbook
 
-#download Shadow_the_Hedhehog_Engings_List and replace file location in next line
-book = load_workbook(r'Shadow-the-Hedgehog-Engings-List.xlsx')
+book = load_workbook(r'C:\Users\megan\OneDrive - University of Limerick\disposable\OneDrive - University of Limerick\Desktop\Python_Projects\Shadow-the-Hedgehog-Engings-List.xlsx')
 sheet = book.active
 
 rows = sheet.rows
@@ -10,13 +9,26 @@ headers = [cell.value for cell in next(rows)]
 
 all_rows = []
 
-# ['number', 'ending_name']
-# ['cell_1, cell_2]
 for row in rows:
     data = {}
-    for title, cell in zip(headers, row): #('number', cell_1)
-        data[title] = cell.value
+    for cell in (row):
+        #making a list rather than a dictionary.
+        all_rows.append(cell.value)
+        
 
-    all_rows.append(data)
+poem_line_1_input = input('Pick your favourite number between 1 and 326.\n')   #\n --> new line
+poem_line_2_input = input('Pick your least favourite number between 1 and 326.\n')
+poem_line_3_input = input('Pick the number you least care about between 1 and 326.\n')
 
-print(all_rows)
+#convert answers from strings to integers
+poem_line_1 = int(poem_line_1_input)-1
+poem_line_2 = int(poem_line_2_input)-1
+poem_line_3 = int(poem_line_3_input)-1
+
+#write the poem!
+poem = []
+poem.append(all_rows[poem_line_1])
+poem.append(all_rows[poem_line_2])
+poem.append(all_rows[poem_line_3])
+
+print(poem)
